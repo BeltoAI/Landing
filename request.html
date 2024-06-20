@@ -32,6 +32,36 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
+    .feedback-scale {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.feedback-scale button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ffcc00;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  flex: 1 1 auto; /* Make the buttons flex to fit the container */
+  max-width: 40px; /* Ensure the buttons don't grow too large */
+}
+
+@media (max-width: 576px) {
+  .feedback-scale button {
+    width: 30px; /* Smaller buttons for small screens */
+    height: 30px;
+    font-size: 0.8rem; /* Smaller text size for small buttons */
+  }
+}
+
+
     .btn-warning {
       background-color: #ffcc00;
       border-color: #ffcc00;
