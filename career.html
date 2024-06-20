@@ -166,35 +166,6 @@
     </section>
     <!-- banner ends -->
 
-    <!-- search section starts -->
-    <section id="search">
-        <div class="container">
-            <form>
-                <div class="row mb-3">
-                    <div class="col-lg-1 mb-2">
-                        <button type="button" class="btn btn-light custom-input" data-bs-toggle="modal" data-bs-target="#filterModal"><i class="fas fa-filter"></i></button>
-                    </div>
-                    <div class="col-lg-3 mb-2">
-                        <input type="text" class="form-control custom-input" placeholder="Keywords">
-                    </div>
-                    <div class="col-lg-3 mb-2">
-                        <select class="form-control custom-input">
-                            <option value="" disabled selected>Location</option>
-                            <option value="location1">Location 1</option>
-                            <option value="location2">Location 2</option>
-                            <option value="location3">Location 3</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-3 mb-2">
-                        <input type="date" class="form-control custom-input" placeholder="Start Date">
-                    </div>
-                    <div class="col-lg-2 mb-2">
-                        <button type="submit" class="btn btn-primary search-btn w-100"> <a href="jobs.html">Search </button>
-                    </div>
-                </div>
-                <div id="filterTags" class="mb-3"></div>
-            </form>
-
             <!-- Filter Modal -->
             <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -231,35 +202,96 @@
                 </div>
             </div>
 
-            <!-- Job Boxes -->
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="job-box">
-                        <h5>Digital Marketing Specialist</h5>
-                        <p>Location: Location 1</p>
-                        <p>Salary: $50,000 - $60,000</p>
-                        <i class="fas fa-info-circle info-icon"></i>
-                    </div>
+           <!-- search section starts -->
+<section id="search">
+    <div class="container">
+        <form id="searchForm" action="jobs.html" onsubmit="return submitForm();">
+            <div class="row mb-3">
+                <div class="col-lg-1 mb-2">
+                    <button type="button" class="btn btn-light custom-input" data-bs-toggle="modal" data-bs-target="#filterModal">
+                        <i class="fas fa-filter"></i>
+                    </button>
                 </div>
-                <div class="col-lg-4">
-                    <div class="job-box">
-                        <h5>SEO Marketing Analyst</h5>
-                        <p>Location: Location 2</p>
-                        <p>Salary: $45,000 - $55,000</p>
-                        <i class="fas fa-info-circle info-icon"></i>
-                    </div>
+                <div class="col-lg-3 mb-2">
+                    <input type="text" class="form-control custom-input" id="keywords" name="keywords" placeholder="Keywords">
                 </div>
-                <div class="col-lg-4">
-                    <div class="job-box">
-                        <h5>Content Marketing Manager</h5>
-                        <p>Location: Location 3</p>
-                        <p>Salary: $55,000 - $65,000</p>
-                        <i class="fas fa-info-circle info-icon"></i>
-                    </div>
+                <div class="col-lg-3 mb-2">
+                    <select class="form-control custom-input" id="location" name="location">
+                        <option value="" disabled selected>Location</option>
+                        <option value="location1">Location 1</option>
+                        <option value="location2">Location 2</option>
+                        <option value="location3">Location 3</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 mb-2">
+                    <input type="date" class="form-control custom-input" id="startDate" name="startDate" placeholder="Start Date">
+                </div>
+                <div class="col-lg-2 mb-2">
+                    <button type="submit" class="btn btn-primary search-btn w-100">Search</button>
                 </div>
             </div>
+            <div id="filterTags" class="mb-3"></div>
+        </form>
+    </div>
+</section>
+
+<!-- Job Boxes -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="job-box">
+                <h5>Digital Marketing Specialist</h5>
+                <p>Location: Location 1</p>
+                <p>Salary: $50,000 - $60,000</p>
+                <i class="fas fa-info-circle info-icon"></i>
+            </div>
         </div>
-    </section>
+        <div class="col-lg-4">
+            <div class="job-box">
+                <h5>SEO Marketing Analyst</h5>
+                <p>Location: Location 2</p>
+                <p>Salary: $45,000 - $55,000</p>
+                <i class="fas fa-info-circle info-icon"></i>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="job-box">
+                <h5>Content Marketing Manager</h5>
+                <p>Location: Location 3</p>
+                <p>Salary: $55,000 - $65,000</p>
+                <i class="fas fa-info-circle info-icon"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function submitForm() {
+        var keywords = document.getElementById('keywords').value.trim();
+        var location = document.getElementById('location').value.trim();
+        var startDate = document.getElementById('startDate').value.trim();
+
+        // Perform validation if needed
+
+        // Build query string based on form inputs
+        var queryString = 'jobs.html';
+        if (keywords !== '') {
+            queryString += '?keywords=' + encodeURIComponent(keywords);
+        }
+        if (location !== '') {
+            queryString += (queryString.includes('?') ? '&' : '?') + 'location=' + encodeURIComponent(location);
+        }
+        if (startDate !== '') {
+            queryString += (queryString.includes('?') || queryString.includes('&') ? '&' : '?') + 'startDate=' + encodeURIComponent(startDate);
+        }
+
+        // Navigate to the constructed URL
+        window.location.href = queryString;
+
+        return false; // Prevent default form submission
+    }
+</script>
+
     <!-- search section ends -->
 
     <!-- footer starts -->
