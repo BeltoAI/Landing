@@ -630,7 +630,7 @@ video
 /* unlock */
 
 #unlock {
-  background-image: url("../img/Gradient_Border_Shadowe.png");
+  background-image: url("https://belto.site/static_resources/landing_page_images_v1/Gradient_Border_Shadowe.png");
   background-size: cover;
   background-position: center;
   padding: 200px 0 100px 0;
@@ -1255,7 +1255,7 @@ footer .footer_btm a:hover {
 }
 
 #preloader {
-  background: #000000 url("../img/preloader.gif") no-repeat center center;
+  background: #000000 url("https://belto.site/static_resources/landing_page_images_v1/preloader.gif") no-repeat center center;
   width: 100%;
   height: 100vh;
   position: fixed;
